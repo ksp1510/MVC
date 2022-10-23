@@ -21,13 +21,18 @@ public class HomeController {
         return "contact";
     }
 
-    @GetMapping("/services")
-    public String services() {
-        return "services";
+    @GetMapping("/service")
+    public String service() {
+        return "service";
     }
 
-    @GetMapping("/shop")
-    public String shop() {
-        return "shop";
+    @GetMapping("/product")
+    public String product() {
+        return "product";
+    }
+
+    @GetMapping("/gallery")
+    public String gallery() {
+        return "gallery";
     }
 }
