@@ -39,9 +39,9 @@
                         <span class="text-white">|</span>
                         <a class="text-white pl-3" href="">Support</a>
                         <span class="text-white">|</span>
-                        <form th:action="@{/product}" th:object="${search}" class="searchform" method="post">
+                        <form action="#" class="searchform order-lg-last">
                             <div class="form-group d-flex">
-                                <input type="text" th:field="*{productName}" class="form-control pl-3" placeholder="Search">
+                                <input type="text" class="form-control pl-3" placeholder="Search">
                                 <button type="submit" placeholder="" class="form-control search">
                                     <span class="fa fa-search"></span></button>
                             </div>
@@ -94,8 +94,8 @@
                     </a>
                     <div class="navbar-nav mr-auto py-0">
                         <a href="service" class="nav-item nav-link">Service</a>
-                        <a href="gallery" class="nav-item nav-link active">Gallery</a>
-                        <a href="contact" class="nav-item nav-link">Contact</a>
+                        <a href="gallery" class="nav-item nav-link">Gallery</a>
+                        <a href="contact" class="nav-item nav-link active">Contact</a>
                     </div>
                 </div>
             </nav>
@@ -107,88 +107,60 @@
     <!-- Header Start -->
     <div class="jumbotron jumbotron-fluid page-header" style="margin-bottom: 90px;">
         <div class="container text-center py-5">
-            <h1 class="text-white display-3 mt-lg-5">Gallery</h1>
+            <h1 class="text-white display-3 mt-lg-5">Contact</h1>
             <div class="d-inline-flex align-items-center text-white">
                 <p class="m-0"><a class="text-white" href="">Home</a></p>
                 <i class="fa fa-circle px-3"></i>
-                <p class="m-0">Gallery</p>
+                <p class="m-0">Contact</p>
             </div>
         </div>
     </div>
     <!-- Header End -->
 
 
-    <!-- Portfolio Start -->
-    <div class="container-fluid py-5 px-0">
+    <!-- Contact Start -->
+    <div class="container-fluid py-5">
         <div class="container py-5">
             <div class="row justify-content-center">
-                <div class="col-lg-5">
-                    <h1 class="section-title position-relative text-center mb-5">Delicious Ice Cream Made From Our Very Own Organic Milk</h1>
+                <div class="col-lg-6">
+                    <h1 class="section-title position-relative text-center mb-5">Contact Us For Any Query</h1>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <ul class="list-inline mb-4 pb-2" id="portfolio-flters">
-                        <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Cone</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Vanilla</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Chocolate</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row m-0 portfolio-container">
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item first">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-1.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-1.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-2.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-2.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item third">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-3.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-3.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item first">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-4.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-4.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item second">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-5.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-5.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 p-0 portfolio-item third">
-                    <div class="position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="img/portfolio-6.jpg" alt="">
-                        <a class="portfolio-btn" href="img/portfolio-6.jpg" data-lightbox="portfolio">
-                            <i class="fa fa-plus text-primary" style="font-size: 60px;"></i>
-                        </a>
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="contact-form bg-light rounded p-5">
+                        <div id="success"></div>
+
+                            <div th:each="q: ${query}" class="form-row">
+                                <div class="col-sm-6 control-group">
+                                    <h5 class="font-weight-bold mb-4">Name:</h5>
+                                    <p><span th:text="${q.name}"/></p>
+                                </div>
+                                <div class="col-sm-6 control-group">
+                                    <h5 class="font-weight-bold mb-4">Email:</h5>
+                                    <p><span th:text="${q.email}"/></p>
+                                </div>
+
+                                <div class="col-sm-6 control-group">
+                                    <h5 class="font-weight-bold mb-4">Subject:</h5>
+                                    <p><span th:text="${q.subject}"/></p>
+                                </div>
+                                <div class="col-sm-6 control-group">
+                                    <h5 class="font-weight-bold mb-4">Message:</h5>
+                                    <p><span th:text="${q.msg}"/></p>
+                                </div>
+
+                            </div>
+                        <div>
+                            <button class="btn btn-primary btn-block py-3 px-5" type="submit" id="sendMessageButton">Send Message</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Portfolio End -->
+    <!-- Contact End -->
 
 
     <!-- Footer Start -->

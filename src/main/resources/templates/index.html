@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8">
@@ -38,6 +38,14 @@
                         <a class="text-white px-3" href="">Help</a>
                         <span class="text-white">|</span>
                         <a class="text-white pl-3" href="">Support</a>
+                        <span class="text-white">|</span>
+                        <form th:action="@{/product}" th:object="${search}" class="searchform" method="post">
+                            <div class="form-group d-flex">
+                                <input type="text" th:field="*{productName}" class="form-control pl-3" placeholder="Search">
+                                <button type="submit" placeholder="" class="form-control search">
+                                <span class="fa fa-search"></span></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="col-md-6 text-center text-lg-right">
