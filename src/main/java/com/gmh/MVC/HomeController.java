@@ -18,29 +18,33 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
+        //model.addAttribute("products", homeService.getProducts());
         model.addAttribute("search", new Search());
         return "index";
     }
 
     @GetMapping("/about")
-    public String about() {
+    public String about(Model model) {
+        model.addAttribute("search", new Search());
         return "about";
     }
 
     @GetMapping("/contact")
     public String contact(Model model) {
+        model.addAttribute("search", new Search());
         model.addAttribute("query", new Query());
         return "contact";
     }
 
     @GetMapping("/service")
-    public String service() {
+    public String service(Model model) {
+        model.addAttribute("search", new Search());
         return "service";
     }
 
     @GetMapping("/product")
     public String product(Model model) {
-        model.addAttribute("products", homeService.getProducts());
+        model.addAttribute("search", new Search());
         return "product";
     }
 
@@ -67,7 +71,8 @@ public class HomeController {
     }
 
     @GetMapping("/gallery")
-    public String gallery() {
+    public String gallery(Model model) {
+        model.addAttribute("search", new Search());
         return "gallery";
     }
 }
