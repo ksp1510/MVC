@@ -18,7 +18,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index(Model model) {
-        //model.addAttribute("products", homeService.getProducts());
+        model.addAttribute("products", homeService.getProducts());
         model.addAttribute("search", new Search());
         return "index";
     }
@@ -45,6 +45,7 @@ public class HomeController {
     @GetMapping("/product")
     public String product(Model model) {
         model.addAttribute("search", new Search());
+        model.addAttribute("products", homeService.getProducts());
         return "product";
     }
 
